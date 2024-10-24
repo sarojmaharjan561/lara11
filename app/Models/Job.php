@@ -26,7 +26,7 @@ class Job
             ],
             [
                 'id' => '3',
-                'title' => 'Teacher',
+                'title' => 'Teachers',
                 'salary' => '$40,000'
             ]
         ];
