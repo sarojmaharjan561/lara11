@@ -18,7 +18,7 @@ Route::get('/jobs', function () {
 
 Route::get('/job/{id}', function ($id) {
 
-    $job = Job::find($id);
+    $job = Job::findorfail($id);
 
     return view('job', ['job' => $job]);
 });
