@@ -14,5 +14,8 @@
             </div>
         </div>
         @endforeach
+        <div>
+            {{$jobs->links()}}
+        </div>
     </div>
 </x-layouts>
