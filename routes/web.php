@@ -12,17 +12,37 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->paginate(5);
-    return view('jobs', [
+    $jobs = Job::with('employer')->latest()->paginate(5);
+    return view('jobs.index', [
         'jobs' => $jobs
     ]);
+});
+
+Route::get('/job/create', function () {
+
+    return view('jobs.create');
+});
+
+Route::post('/job', function () {
+
+    /*
+        validation remaining
+    */
+
+    Job::create([
+        'title' => request('title'),
+        'salary' => request('salary'),
+        'employer_id' => 1
+    ]);
+
+    return redirect('jobs');
 });
 
 Route::get('/job/{id}', function ($id) {
 
     $job = Job::findorfail($id);
 
-    return view('job', ['job' => $job]);
+    return view('jobs.show', ['job' => $job]);
 });
 
 Route::get('/contact', function () {
