@@ -18,7 +18,7 @@ Route::get('/jobs', function () {
     ]);
 });
 
-Route::get('/job/create', function () {
+Route::get('/jobs/create', function () {
 
     return view('jobs.create');
 });
