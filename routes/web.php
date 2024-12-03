@@ -43,29 +43,23 @@ Route::post('/job', function () {
 });
 
 // Show
-Route::get('/jobs/{id}', function ($id) {
-
-    $job = Job::findorfail($id);
+Route::get('/jobs/{job}', function (Job $job) {
 
     return view('jobs.show', ['job' => $job]);
 });
 
 // Edit
-Route::get('/jobs/{id}/edit', function ($id) {
-
-    $job = Job::findorfail($id);
+Route::get('/jobs/{job}/edit', function (Job $job) {
 
     return view('jobs.edit', ['job' => $job]);
 });
 
 // Update
-Route::patch('/jobs/{id}', function ($id) {
+Route::patch('/jobs/{job}', function (Job $job) {
     request()->validate([
         'title' => ['required', 'min:3'],
         'salary' => ['required']
     ]);
-
-    $job = Job::findorfail($id);
 
     $job->update([
         'title' => request('title'),
@@ -76,9 +70,7 @@ Route::patch('/jobs/{id}', function ($id) {
 });
 
 // Show
-Route::delete('/jobs/{id}', function ($id) {
-
-    $job = Job::findorfail($id);
+Route::delete('/jobs/{job}', function (Job $job) {
 
     $job->delete();
 
