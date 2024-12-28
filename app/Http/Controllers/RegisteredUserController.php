@@ -15,18 +15,15 @@ class RegisteredUserController extends Controller
 
     public function store()
     {
-        // validate
+
         $attributes = request()->validate([
             'name' => ['required', 'min:5'],
             'email' => ['required', 'email'],
             'password' => ['required', Password::min(6), 'confirmed']
         ]);
 
-        // save
         $user = User::create($attributes);
-        // login
         Auth::login($user);
-        // redirect
         return redirect('/jobs');
     }
 }
