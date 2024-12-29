@@ -7,7 +7,8 @@
 
     <title>Laravel</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/js/app.js'])
+
 </head>
 
 <body class="h-full">

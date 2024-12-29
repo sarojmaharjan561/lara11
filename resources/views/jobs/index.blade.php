@@ -1,6 +1,6 @@
 <x-layouts>
     <x-slot:heading>Job Listings</x-slot:heading>
-    <div>
+    <div class="space-y-4">
         @foreach($jobs as $job)
         <div class="mt-4 bg-red-400">
             <div>
